@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import useInput from './hooks/useInput';
 
 function App() {
-  const [value,setValue] = useState('')
 
-  const onChange = e=>{
-    setValue(e.target.value)
-  }
+  const username=useInput('')
+  const password=useInput('')
+  
 
   return (
     <div>
-      <input type="text" value={value} onChange={onChange} />
-      <button onClick={()=>{console.log(value)}}>Click</button>
+      <input type="text" placeholder="'username" {...username}  />
+      <input type="text" placeholder="password"  {...password}/>
+      <button onClick={()=>{console.log(username.value,password.value)}}>Click</button>
     </div>
   );
 }
